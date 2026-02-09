@@ -3,7 +3,7 @@
 [![arXiv](https://img.shields.io/badge/arXiv-2602.xxxxx-b31b1b.svg)](<LINK>)
 [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://dravenalg.github.io/VLANeXt)
 
-<img src="imgs/roadmap_with_framework.png" alt="roadmap of vlanext" style="zoom:50%;" />
+<img src="imgs/roadmap.png" alt="roadmap of vlanext" style="zoom:50%;" />
 
 This is a PyTorch implementation of the paper: [VLANeXt: Recipes for Building Strong VLA Models](), and also a **unified**, **easy-to-use** codebase that standardizes training and evaluation while exposing the key components of the VLA design space. It is intentionally lightweight and minimally encapsulated, enabling researchers to reproduce results, probe alternative design choices, and build new VLA variants on a shared, transparent foundation.
 
