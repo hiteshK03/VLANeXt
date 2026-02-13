@@ -27,7 +27,7 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">VLANeXt: Recipes for Building Strong VLA Models</h1>
+          <h1 class="title is-2 publication-title">VLANeXt: Recipes for Building Strong VLA Models</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               Xiao-Ming Wu, Bin Fan, Kang Liao, Jian-Jian Jiang, Runze Yang, Yihang Luo, Zhonghua Wu, Wei-Shi Zheng, Chen Change Loy*
@@ -106,12 +106,56 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method Overall</h2>
         <div class="content has-text-centered">
-          <p>We explore several recipes for building strong VLA models.</p>
+          <p>
+            We re-examine the VLA design space by systematically dissecting design choices along three key dimensions: 
+            foundational components, perception essentials, and action modelling perspectives. 
+            From this comprehensive study, we distill 12 key findings to guide the construction of strong VLA models.
+          </p>
           <img src="./static/images/roadmap.png" width="75%" alt="roadmap"/>
           <br>
           <br>
           <p>The final VLANeXt framework after exploring is as follows.</p>
           <img src="./static/images/framework.png" width="100%" alt="framework"/>
+        </div>
+      </div>
+    </div>
+
+    <!-- Result Tables. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Recipes Exploration Results</h2>
+        <div class="content has-text-centered">
+          <p>
+            We conduct extensive ablations across 12 design axes. Our results are summarized in the table below, which serves as a practical recipe for building strong VLA models.
+          </p>
+          <img src="./static/images/recipies_table.png" width="100%" alt="recipes table"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">LIBERO Benchmark Results</h2>
+        <div class="content has-text-centered">
+          <p>
+          VLANeXt achieves state-of-the-art performance on the standard LIBERO benchmark. 
+          It consistently outperforms existing open-source baselines such as OpenVLA, demonstrating its versatility and effectiveness in diverse manipulation scenarios.
+          </p>
+          <img src="./static/images/libero_table.png" width="50%" alt="LIBERO benchmark table"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">LIBERO-Plus Benchmark Results</h2>
+        <div class="content has-text-centered">
+          <p>
+            On the more challenging LIBERO-Plus benchmark, which introduces severe perturbations (lighting, camera pose, layout, etc.), 
+            VLANeXt exhibits remarkable robustness. It maintains high success rates where other methods degrade significantly, 
+            verifying the efficacy of our architectural choices.
+          </p>
+          <img src="./static/images/libero_plus_table.png" width="100%" alt="LIBERO-Plus benchmark table"/>
         </div>
       </div>
     </div>
@@ -122,6 +166,12 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Real World Demos</h2>
+    <div class="content has-text-centered">
+      <p>
+        We validate VLANeXt in the real world. 
+        The model successfully performs a variety of everyday tasks, showing strong transfer from pre-training to real-world deployment.
+      </p>
+    </div>
     <div class="columns is-centered is-multiline">
       <div class="column is-3">
         <div class="content">
@@ -179,6 +229,12 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Libero Benchmark Demos</h2>
+    <div class="content has-text-centered">
+      <p>
+        Below are qualitative examples from the standard LIBERO benchmark. 
+        VLANeXt precisely follows natural language instructions to conduct manipulation under different environments.
+      </p>
+    </div>
     <div class="columns is-centered">
       <div class="column best-method">
         <div class="content">
@@ -221,6 +277,11 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Libero-Plus Benchmark Demos</h2>
      <div class="content has-text-justified">
+      <p>
+        These demos showcase VLANeXt's performance on LIBERO-Plus under various extensive perturbations 
+        to completes the task: "pick up the black bowl next to the plate and place it on the plate". 
+        The model remains stable facing different perturbations.
+      </p>
       <p class="has-text-centered"><strong>Task Instruction:</strong> pick up the black bowl next to the plate and place it on the plate</p>
     </div>
     <!-- Row 1: 4 videos -->
