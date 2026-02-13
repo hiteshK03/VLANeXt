@@ -123,7 +123,7 @@ CUDA_VISIBLE_DEVICES=0 python -m scripts.size_speed_eval
 
 ## 📚 Citation
 
-If you find Puffin useful for your research or applications, please cite our paper using the following BibTeX:
+If you find VLANeXt useful for your research or applications, please cite our paper using the following BibTeX:
 
 ```bibtex
   @article{}
