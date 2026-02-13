@@ -106,15 +106,13 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Method Overall</h2>
         <div class="content has-text-centered">
-          <p>
-            We re-examine the VLA design space by systematically dissecting design choices along three key dimensions: 
-            foundational components, perception essentials, and action modelling perspectives. 
-            From this comprehensive study, we distill 12 key findings to build strong VLA models.
+          <p class="has-text-left">
+            We re-examine the VLA design space through a systematic study along three key dimensions: <strong>foundational components</strong>, <strong>perception essentials</strong>, and <strong>action modelling</strong>. This structured exploration yields 12 findings that together form a practical recipe for building strong VLA models.
           </p>
           <img src="./static/images/roadmap.png" width="75%" alt="roadmap"/>
           <br>
           <br>
-          <p>The final VLANeXt framework after exploring is as follows.</p>
+          <p class="has-text-left">The resulting VLANeXt framework integrates the best practices identified from our exploration into a unified architecture.</p>
           <img src="./static/images/framework.png" width="100%" alt="framework"/>
         </div>
       </div>
@@ -125,8 +123,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Recipes Exploration Results</h2>
         <div class="content has-text-centered">
-          <p>
-            We conduct extensive ablations across 12 design axes. Our results are summarized in the table below, which serves as a practical recipe for building strong VLA models.
+          <p class="has-text-left">
+            We conduct extensive ablations across 12 design axes, covering <strong>foundational components</strong>, <strong>perception essentials</strong>, and <strong>action modelling</strong>. The table below summarizes each finding with its recommended configuration, serving as a step-by-step recipe for practitioners.
           </p>
           <img src="./static/images/recipies_table.png" width="100%" alt="recipes table"/>
         </div>
@@ -137,9 +135,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">LIBERO Benchmark Results</h2>
         <div class="content has-text-centered">
-          <p>
-          VLANeXt achieves state-of-the-art performance on the standard LIBERO benchmark. 
-          It consistently outperforms existing baselines such as OpenVLA, demonstrating its versatility and effectiveness in diverse manipulation scenarios.
+          <p class="has-text-left">
+          VLANeXt achieves state-of-the-art performance across all four LIBERO benchmark suites (Spatial, Object, Goal, and Long). It consistently outperforms strong baselines including OpenVLA, OpenVLA-OFT, and π₀, demonstrating its versatility across diverse manipulation scenarios with varying task complexity.
           </p>
           <img src="./static/images/libero_table.png" width="50%" alt="LIBERO benchmark table"/>
         </div>
@@ -150,9 +147,8 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">LIBERO-Plus Benchmark Results</h2>
         <div class="content has-text-centered">
-          <p>
-            On the more challenging LIBERO-Plus benchmark, which introduces severe perturbations, VLANeXt also exhibits remarkable robustness. 
-            It maintains high success rates where other methods degrade significantly, verifying the efficacy of our architectural choices.
+          <p class="has-text-left">
+            LIBERO-Plus introduces seven categories of systematic perturbations, background, camera, language, layout, lighting, noise, and robot changes, to stress-test policy robustness. VLANeXt maintains consistently high success rates across all perturbation types, while competing methods exhibit significant performance degradation, validating the robustness of our design choices.
           </p>
           <img src="./static/images/libero_plus_table.png" width="100%" alt="LIBERO-Plus benchmark table"/>
         </div>
@@ -165,10 +161,9 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Real World Demos</h2>
-    <div class="content has-text-centered">
+    <div class="content has-text-left">
       <p>
-        We validate VLANeXt in the real world. 
-        The model successfully performs a variety of everyday tasks, showing strong transfer from pre-training to real-world deployment.
+        We deploy VLANeXt on physical robot platforms to validate real-world transferability. The model successfully executes a variety of everyday manipulation tasks, including table cleaning, drawer manipulation and lifting, on both single-arm and bimanual setups, demonstrating reliable sim-to-real transfer.
       </p>
     </div>
     <div class="columns is-centered is-multiline">
@@ -228,10 +223,9 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Libero Benchmark Demos</h2>
-    <div class="content has-text-centered">
+    <div class="content has-text-left">
       <p>
-        Below are qualitative examples from the standard LIBERO benchmark. 
-        VLANeXt precisely follows natural language instructions to conduct manipulation tasks under different environments.
+        Qualitative rollouts from the LIBERO benchmark illustrate VLANeXt's ability to follow diverse natural language instructions and perform precise manipulation across varied environments and object configurations.
       </p>
     </div>
     <div class="columns is-centered">
@@ -275,13 +269,10 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Libero-Plus Benchmark Demos</h2>
-     <div class="content has-text-justified">
+     <div class="content has-text-left">
       <p>
-        These demos showcase VLANeXt's performance on LIBERO-Plus under various extensive perturbations 
-        to completes the task: <strong>"pick up the black bowl next to the plate and place it on the plate"</strong>.
-        The model remains stable facing different perturbations.
+        These rollouts demonstrate VLANeXt's robustness on LIBERO-Plus, where the model must complete the task <strong>"pick up the black bowl next to the plate and place it on the plate"</strong> under seven distinct perturbation categories. Despite significant environmental changes, the model maintains stable and accurate manipulation.
       </p>
-      <p class="has-text-centered"><strong>Task Instruction:</strong> pick up the black bowl next to the plate and place it on the plate</p>
     </div>
     <!-- Row 1: 4 videos -->
     <div class="columns is-centered">
