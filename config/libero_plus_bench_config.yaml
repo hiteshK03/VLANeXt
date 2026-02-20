@@ -9,8 +9,8 @@ model:
   scheduler_type: "flow_match" # Options: "ddpm", "ddim", "flow_match"
 
 eval:
-  finetuned_checkpoint: "/mnt/draven/checkpoints/VLANeXt/VLANeXt_final_libero/bs256_steps10000_goal_qwen3vl2b_lr1e-4_dct0.1_v4/checkpoint_final.pt" # Path to the finetuned model checkpoint
-  task_suite_name: "libero_goal" # Options: libero_spatial, libero_object, libero_goal, libero_10
+  finetuned_checkpoint: "" # Path to the finetuned model checkpoint
+  task_suite_name: "libero_spatial" # Options: libero_spatial, libero_object, libero_goal, libero_10
   num_steps_wait: 10
   num_steps_execute: 8 # Number of actions to execute from the predicted chunk
   num_trials_per_task: 1
