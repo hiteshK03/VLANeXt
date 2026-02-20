@@ -2,6 +2,7 @@
 
 [![arXiv](https://img.shields.io/badge/arXiv-2602.xxxxx-b31b1b.svg)](<LINK>)
 [![Project Page](https://img.shields.io/badge/Project-Page-green)](https://dravenalg.github.io/VLANeXt)
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/DravenALG/VLANeXt)
 [![Awesome VLA](https://img.shields.io/badge/GitHub-AwesomeVLA-black)](https://github.com/DravenALG/awesome-vla)
 
 <p align="center">
