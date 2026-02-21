@@ -27,7 +27,7 @@ data:
 
   # batch training configs
   batch_size: 256  # this is the total batch size across all GPUs, it will be automatically divided by the number of GPUs used
-  max_steps: 10000
+  max_steps: 10000 # 10k for spatial, object, goal; 12k for long (10)
   num_workers: 2
 
   # vision input controls
