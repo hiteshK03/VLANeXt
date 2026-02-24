@@ -144,7 +144,8 @@ If you find VLANeXt useful for your research or applications, please cite our pa
   @article{wu2026vlanext,
       title={VLANeXt: Recipes for Building Strong VLA Models}, 
       author={Xiao-Ming Wu and Bin Fan and Kang Liao and Jian-Jian Jiang and Runze Yang and Yihang Luo and Zhonghua Wu and Wei-Shi Zheng and Chen Change Loy},
-      journal={arXiv preprint arXiv:2602.18532}
+      journal={arXiv preprint arXiv:2602.18532},
+      year={2026},
   }
 ```
 
