@@ -107,6 +107,8 @@ CUDA_VISIBLE_DEVICES=4,5,6,7 torchrun --nproc_per_node=4 --master_port=29506 -m 
 ## 📊 Evaluation
 We have released VLANeXt checkpoints for the four LIBERO or LIBERO-plus suites on [huggingface](https://huggingface.co/DravenALG/VLANeXt). These checkpoints achieve slightly better performance than the results reported in the paper, as the paper reports the average results.
 
+We also released a checkpoint trained on the Droid dataset, which can be finetuned for real-world experiments with a Franka robotic arm.
+
 ### LIBERO
 For more details, please refer to the [official repository of LIBERO](https://github.com/Lifelong-Robot-Learning/LIBERO).
 
