@@ -248,8 +248,8 @@ if __name__ == "__main__":
     # Configuration
     BASE_DIR = "/data/NTU_slab/draven/data/LIBERO_modified"
     SUITES = [
-        # "libero_spatial",
-        "libero_object",
+        "libero_spatial",
+        # "libero_object",
         # "libero_goal",
         # "libero_10",
     ]
