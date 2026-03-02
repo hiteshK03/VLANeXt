@@ -249,12 +249,12 @@ if __name__ == "__main__":
     from tqdm import tqdm
 
     # Configuration
-    BASE_DIR = "/mnt/draven/data/LIBERO_modified"
+    BASE_DIR = "/data/NTU_slab/draven/data/LIBERO_modified"
     SUITES = [
-        # "libero_spatial",
+        "libero_spatial",
         # "libero_object",
         # "libero_goal",
-        "libero_10",
+        # "libero_10",
         # "libero_mixed"
     ]
     VERSION = "1.0.0"
