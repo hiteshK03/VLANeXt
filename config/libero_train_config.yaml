@@ -1,6 +1,6 @@
 project:
   # [projectname]_[versionname]_[benchmarkname]_[else......]
-  name: "VLANeXt_final_libero_bs256_steps10000_spatial_qwen3vl2b_lr1e-4_dct0.1"
+  name: "VLANeXt_final_libero_bs256_steps10000_spatial_qwen3vl2b_lr1e-4"
   output_dir: "/mnt/draven/checkpoints/VLANeXt"
   log_interval: 10
   save_interval: 2000
