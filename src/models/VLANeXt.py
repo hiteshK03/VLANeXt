@@ -75,6 +75,9 @@ class VLANeXt(nn.Module):
         generator_mlp_ratio=4.0,
         attn_implementation="flash_attention_2",
         dct_loss_weight=0.1,
+        dct_low_freq_weight=1.0,
+        dct_high_freq_weight=3.0,
+        dct_freq_split=0.5,
     ):
         super().__init__()
         
@@ -161,6 +164,9 @@ class VLANeXt(nn.Module):
         self.future_image_loss_weight = future_image_loss_weight
         self.enable_future_image_loss = (future_image_loss_weight > 0)
         self.dct_loss_weight = dct_loss_weight
+        self.dct_low_freq_weight = dct_low_freq_weight
+        self.dct_high_freq_weight = dct_high_freq_weight
+        self.dct_freq_split = dct_freq_split  # fraction of T treated as low frequency (0.0–1.0)
         
         self.action_vqvae_config = action_vqvae
         if self.action_vqvae_config.get('enabled', False):
@@ -556,7 +562,16 @@ class VLANeXt(nn.Module):
             dct_m[1:, :] *= np.sqrt(2.0 / T)
             
             self._dct_matrix = dct_m
-            
+
+        # Build per-frequency weight vector: shape (T,)
+        # Frequencies 0..split_idx-1 are low freq, split_idx..T-1 are high freq
+        split_idx = max(1, int(T * self.dct_freq_split))
+        freq_weights = torch.ones(T, device=pred.device, dtype=pred.dtype)
+        freq_weights[:split_idx] = self.dct_low_freq_weight
+        freq_weights[split_idx:] = self.dct_high_freq_weight
+        # Shape for broadcasting: (1, T, 1)
+        freq_weights = freq_weights.view(1, T, 1)
+
         pred_perm = pred.permute(0, 2, 1)
         pred_dct = torch.matmul(pred_perm, self._dct_matrix.t())
         pred_dct = pred_dct.permute(0, 2, 1)
@@ -565,7 +580,9 @@ class VLANeXt(nn.Module):
         target_dct = torch.matmul(target_perm, self._dct_matrix.t())
         target_dct = target_dct.permute(0, 2, 1)
 
-        return F.mse_loss(pred_dct, target_dct)
+        # Weighted MSE: weight each frequency bin before averaging
+        diff_sq = (pred_dct - target_dct) ** 2
+        return (diff_sq * freq_weights).mean()
 
     def forward(self, input_ids=None, attention_mask=None, actions=None, proprioception=None, history_actions=None, proprio_attention_mask=None, pixel_values=None, pixel_values_videos=None, image_grid_thw=None, video_grid_thw=None, future_images=None, task=None):
         if task == "action_vqvae_pretrain":

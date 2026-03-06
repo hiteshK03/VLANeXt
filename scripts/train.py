@@ -401,6 +401,9 @@ def train(config):
             generator_mlp_ratio=config['model'].get('generator_mlp_ratio', 4.0),
             action_vqvae=config['model'].get('action_vqvae', None),
             dct_loss_weight=config['model'].get('dct_loss_weight', 0.1),
+            dct_low_freq_weight=config['model'].get('dct_low_freq_weight', 1.0),
+            dct_high_freq_weight=config['model'].get('dct_high_freq_weight', 3.0),
+            dct_freq_split=config['model'].get('dct_freq_split', 0.5),
         ).to(device, dtype=torch.bfloat16)
     if has_pretrained_ckpt:
         if global_rank == 0:

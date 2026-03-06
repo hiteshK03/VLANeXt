@@ -146,8 +146,6 @@ CUDA_VISIBLE_DEVICES=0 MUJOCO_EGL_DEVICE_ID=0 python -m scripts.libero_plus_benc
 ```
 
 
-
-
 ## ⚡ Analysis
 **Model Size and Speed**  
 Set `CHECKPOINT_PATH` and `INPUT_MODALITY` in `scripts/size_speed_eval.py`.

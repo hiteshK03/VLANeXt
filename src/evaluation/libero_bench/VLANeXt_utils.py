@@ -93,6 +93,9 @@ def get_vla(cfg):
             generator_mlp_ratio=model_config.get('generator_mlp_ratio', 4.0),
             attn_implementation=attn_implementation,
             dct_loss_weight=model_config.get('dct_loss_weight', 0.1),
+            dct_low_freq_weight=model_config.get('dct_low_freq_weight', 1.0),
+            dct_high_freq_weight=model_config.get('dct_high_freq_weight', 3.0),
+            dct_freq_split=model_config.get('dct_freq_split', 0.5),
         )
     
     
