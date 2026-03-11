@@ -1,7 +1,7 @@
 project:
   # [projectname]_[versionname]_[benchmarkname]_[else......]
   name: "VLANeXtV2_v0_droid_bs256_normal"
-  output_dir: "/mnt/draven/checkpoints/VLANeXtV2"
+  output_dir: "/mnt/draven/checkpoints/VLANeXt"
   log_interval: 10
   save_interval: 5000
   use_wandb: true
