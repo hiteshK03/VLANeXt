@@ -565,13 +565,10 @@ class VLANeXt(nn.Module):
             
             self._dct_matrix = dct_m
 
-        # Build per-frequency weight vector: shape (T,)
-        # Frequencies 0..split_idx-1 are low freq, split_idx..T-1 are high freq
         split_idx = max(1, int(T * self.dct_freq_split))
         freq_weights = torch.ones(T, device=pred.device, dtype=pred.dtype)
         freq_weights[:split_idx] = self.dct_low_freq_weight
         freq_weights[split_idx:] = self.dct_high_freq_weight
-        # Shape for broadcasting: (1, T, 1)
         freq_weights = freq_weights.view(1, T, 1)
 
         pred_perm = pred.permute(0, 2, 1)
@@ -582,26 +579,20 @@ class VLANeXt(nn.Module):
         target_dct = torch.matmul(target_perm, self._dct_matrix.t())
         target_dct = target_dct.permute(0, 2, 1)
 
-        # Compute weighted similarity loss based on selected type
         sim_type = self.dct_similarity_type
         if sim_type == "mse":
-            # Weighted MSE: weight each frequency bin before averaging
             diff = (pred_dct - target_dct) ** 2
             return (diff * freq_weights).mean()
         elif sim_type == "mae":
-            # Weighted MAE (L1): weight each frequency bin before averaging
             diff = (pred_dct - target_dct).abs()
             return (diff * freq_weights).mean()
         elif sim_type == "cosine":
-            # Weighted cosine distance: 1 - cos(pred_dct, target_dct) per (B, T) pair
-            # pred_dct / target_dct: (B, T, D)
             pred_norm = torch.nn.functional.normalize(pred_dct, dim=-1)
             target_norm = torch.nn.functional.normalize(target_dct, dim=-1)
-            cos_sim = (pred_norm * target_norm).sum(dim=-1, keepdim=True)  # (B, T, 1)
-            cos_dist = 1.0 - cos_sim  # (B, T, 1)
+            cos_sim = (pred_norm * target_norm).sum(dim=-1, keepdim=True)
+            cos_dist = 1.0 - cos_sim
             return (cos_dist * freq_weights).mean()
         elif sim_type == "lsd":
-            # Log-Spectral Distance: log(|x| + eps) first, then weighted MAE
             eps = 1e-8
             log_pred = torch.log(pred_dct.abs() + eps)
             log_target = torch.log(target_dct.abs() + eps)
