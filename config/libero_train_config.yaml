@@ -1,6 +1,6 @@
 project:
   # [projectname]_[versionname]_[benchmarkname]_[else......]
-  name: "VLANeXtV2_v0_libero_spatial"
+  name: "VLANeXt_v0_libero_spatial"
   output_dir: "/mnt/draven/checkpoints/VLANeXt"
   log_interval: 10
   save_interval: 2000

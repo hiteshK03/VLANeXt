@@ -402,9 +402,9 @@ def train(config):
             action_vqvae=config['model'].get('action_vqvae', None),
             dct_loss_weight=config['model'].get('dct_loss_weight', 0.1),
             dct_low_freq_weight=config['model'].get('dct_low_freq_weight', 1.0),
-            dct_high_freq_weight=config['model'].get('dct_high_freq_weight', 3.0),
-            dct_freq_split=config['model'].get('dct_freq_split', 0.5),
-            dct_similarity_type=config['model'].get('dct_similarity_type', 'mse'),
+            dct_high_freq_weight=config['model'].get('dct_high_freq_weight', 1.0),
+            dct_freq_split=config['model'].get('dct_freq_split', 0.25),
+            dct_similarity_type=config['model'].get('dct_similarity_type', 'mae'),
         ).to(device, dtype=torch.bfloat16)
     if has_pretrained_ckpt:
         if global_rank == 0:
