@@ -304,6 +304,14 @@ data:
 model:
   # Auxiliary DCT loss weight (set > 0 to activate)
   dct_loss_weight: 0.1
+
+  # Fraction of DCT coefficients treated as low-frequency (0.0–1.0)
+  dct_freq_split: 0.125
+  # Per-band loss weights
+  dct_low_freq_weight: 1.0
+  dct_high_freq_weight: 1.0
+  # Similarity metric for DCT loss
+  dct_similarity_type: "mae"     # Options: "mse", "mae", "cosine"
 ```
 
 #### Implementation Details
@@ -311,6 +319,8 @@ model:
 - For **diffusion** loss, the clean action estimate $\hat{x}_0$ is first recovered from the noisy prediction (via the reparameterization formula for both flow matching and DDIM), then the DCT loss is applied on $\hat{x}_0$ vs. the ground-truth actions.
 - For **regression** loss, the DCT loss is directly computed on the predicted vs. ground-truth actions.
 - For **classification** loss, soft action predictions are obtained from the logit probabilities (expected value over bin centers or VQ-VAE soft decoding), then the DCT loss is applied.
+- `dct_freq_split` controls the boundary between low- and high-frequency bands; `dct_low_freq_weight` and `dct_high_freq_weight` scale the loss contribution of each band independently. When action chunk is 8, using 0.125 or 0.25 split works good. Low frequencies are more helpful than high frequencies.
+- `dct_similarity_type` selects the per-element distance metric applied in the DCT domain: `"mse"` (squared error), `"mae"` (absolute error), or `"cosine"` (cosine distance). Note that `"cosine"` may require a smaller `dct_loss_weight` for stable training. 
 - The total loss becomes: `loss = primary_loss + dct_loss_weight * dct_loss`.
 
 <p align="center">
