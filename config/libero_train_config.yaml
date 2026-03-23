@@ -113,7 +113,7 @@ model:
   dct_freq_split: 0.125
   dct_low_freq_weight: 1.0
   dct_high_freq_weight: 1.0
-  dct_similarity_type: "mae" # Options: "mse", "mae", "cosine", cosine needs smaller dct_loss_weight
+  dct_similarity_type: "mse" # Options: "mse", "mae", "cosine", cosine needs smaller dct_loss_weight
 
   # action condition configs
   use_proprio_input_vlm: true

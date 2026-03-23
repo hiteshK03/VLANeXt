@@ -311,7 +311,7 @@ model:
   dct_low_freq_weight: 1.0
   dct_high_freq_weight: 1.0
   # Similarity metric for DCT loss
-  dct_similarity_type: "mae"     # Options: "mse", "mae", "cosine"
+  dct_similarity_type: "mse"     # Options: "mse", "mae", "cosine"
 ```
 
 #### Implementation Details
